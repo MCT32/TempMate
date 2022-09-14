@@ -7,5 +7,5 @@
 - [ ] C#
 - [ ] Rust
 - [ ] Python
-- [ ] NodeJS
+- [x] NodeJS (you should use `$ npm init` instead)
 - [x] HTML
