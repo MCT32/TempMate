@@ -14,13 +14,21 @@ template = args["template"]
 target_dir = args["target_dir"]
 source_dir = args["source_dir"]
 
-templates = sorted(source_dir.glob(template))
+paths = {}
 
-assert len(templates) != 0, "Directory not found"
+for (dir, subdir, file) in os.walk(str(source_dir)):
+    names = dir.split(",")
+    
+    for name in names:
+        paths[name] = dir
+
+assert paths[template], "Directory not found"
+
+path = source_dir.joinpath(paths[template])
 
 if os.name == "nt":
-    os.system("copy " + str(templates[0]) + " " + str(target_dir))
+    os.system("copy \"" + str(path) + "\" \"" + str(target_dir) + "\"")
 elif os.name == "posix":
-    os.system("cp " + str(templates[0]) + " " + str(target_dir))
+    os.system("cp \"" + str(path) + "\" \"" + str(target_dir) + "\"")
 else:
     print("OS not currently supported.")

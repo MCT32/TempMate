@@ -1,8 +1,8 @@
 # Features
-- [ ] Allow templates to have multiple names for easier searching.
+- [x] Allow templates to have multiple names for easier searching.
 
 # Templates
-- [X] C
+- [x] C
 - [ ] C++
 - [ ] C#
 - [ ] Rust
